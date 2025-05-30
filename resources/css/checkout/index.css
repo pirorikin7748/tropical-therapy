@@ -1,0 +1,95 @@
+.checkout-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.checkout-box {
+    margin-bottom: 1rem;
+}
+
+.checkout-box label {
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.checkout-box p {
+    padding: 0.5rem;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.checkout-button {
+    background-color: #00796b;
+    color: white;
+    padding: 0.6rem 1.5rem;
+    font-weight: bold;
+    border-radius: 0.375rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.checkout-button:hover {
+    background-color: #007977;
+}
+
+.checkout-box input[type="text"],
+.checkout-box input[type="email"] {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* 電話番号・郵便番号を横並びに */
+.tel-group,
+.zip-group {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+/* 電話番号・郵便番号それぞれの入力フィールドサイズ */
+.tel-group input,
+.zip-group input {
+    width: 80px;
+    text-align: center;
+}
+
+@media screen and (max-width: 640px) {
+  .checkout-container {
+    padding: 1rem;
+  }
+
+  .tel-group,
+  .zip-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tel-group input,
+  .zip-group input {
+    width: 100%;
+  }
+
+  .checkout-box input[type="text"],
+  .checkout-box input[type="email"] {
+    font-size: 1rem;
+  }
+
+  .checkout-button {
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    margin: 0 auto;
+    font-size: 1rem;
+  }
+}

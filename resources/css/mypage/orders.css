@@ -1,0 +1,203 @@
+.mypage-orders {
+    padding: 2rem;
+}
+
+.order-box {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.order-box .order-header {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.order-box .order-total {
+    font-weight: bold;
+    text-align: right;
+    margin-bottom: 0.5rem;
+}
+
+.order-box .order-item {
+    display: flex;
+    gap: 1rem;
+    border-top: 1px solid #eee;
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+    align-items: center;
+}
+
+.order-box .order-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.order-box .order-item .info {
+    font-size: 0.9rem;
+}
+
+.pagination-wrapper {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.no-orders {
+    text-align: center;
+    color: #666;
+    margin-top: 2rem;
+    font-size: 1rem;
+}
+
+.nav-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    min-width: 2.5rem;
+    text-align: center;
+    border: none;
+}
+
+.nav-button.active {
+    background-color: #007f65;
+    color: #fff;
+}
+
+.nav-button:not(.active) {
+    background-color: #fff;
+    color: #00796d;
+}
+
+.nav-button:hover {
+    background-color: #ddd;
+}
+
+/* 無効状態（← →） */
+.nav-button.disabled {
+    background-color: #e0e0e0;
+    color: #999;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.back-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.b-nav-button {
+    display: inline-block;
+    background-color: #007f65;
+    color: #fff;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.b-nav-button:hover {
+    background-color: #005a48;
+}
+
+.custom-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); 
+    z-index: -1;
+}
+
+.no-data-message {
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #333;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    text-align: center;
+    max-width: 400px;
+    margin: 2rem auto;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+@media screen and (max-width: 768px) {
+    .mypage-orders {
+        padding: 1.5rem 1rem;
+    }
+
+    .order-box {
+        padding: 1rem;
+    }
+
+    .order-box .order-header,
+    .order-box .order-total {
+        font-size: 0.9rem;
+        text-align: left;
+    }
+
+    .order-box .order-item {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .order-box .order-item img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .order-box .order-item .info {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .pagination-wrapper {
+        margin-top: 2rem;
+    }
+
+    .back-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .b-nav-button {
+        width: 100%;
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .custom-pagination {
+        font-size: 0.9rem;
+        flex-wrap: wrap;
+    }
+}

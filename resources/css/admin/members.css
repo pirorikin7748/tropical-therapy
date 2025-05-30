@@ -1,0 +1,178 @@
+/* 全体の基本設定 */
+body {
+    background-color: #f0f0f0;
+    color: #333;
+    font-family: 'Helvetica', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+    padding: 2rem;
+}
+
+/* フォームラベル */
+form label {
+    font-weight: bold;
+    margin-right: 0.5rem;
+    white-space: nowrap;
+}
+
+/* フォーム入力 */
+form input[type="text"],
+form select {
+    padding: 0.3rem 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+}
+
+form button {
+    padding: 0.4rem 1rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #707070;
+}
+
+/* 検索フォーム */
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+/* テーブル */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+    padding: 0.75rem;
+    font-weight: bold;
+    border-right: 1px solid #ddd;
+    white-space: nowrap;
+}
+
+td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ddd;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* テーブル全体ラップ */
+.table-container {
+    overflow-x: auto;
+    background: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+/* 編集・リンク */
+a {
+    color: #3498db;
+    text-decoration: underline;
+}
+
+/* 一括退会ボタン */
+.action-button {
+    margin-top: 1rem;
+    text-align: left;
+}
+
+/* CSV */
+.csv-links {
+    margin-left: 1rem;
+    align-self: flex-end;
+}
+
+.csv-links a {
+    color: purple;
+    font-weight: bold;
+    white-space: nowrap;
+    text-decoration: underline;
+}
+
+/* トップページリンク */
+.top-links {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.top-links a {
+    display: block;
+    color: purple;
+    margin-bottom: 0.5rem;
+    text-decoration: underline;
+}
+
+
+/* ページネーション件数表示 */
+.pagination-info {
+    text-align: center;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+/* ページネーション本体 */
+.pagenation {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 2rem;
+}
+
+.pagenation a,
+.pagenation span {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #eee;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.pagenation a:hover {
+    background-color: #ddd;
+}
+
+.pagenation .current {
+    background-color: #333;
+    color: #fff;
+    pointer-events: none;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .search-form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    table {
+        font-size: 0.875rem;
+    }
+
+    .action-button {
+        text-align: center;
+    }
+}

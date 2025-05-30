@@ -1,0 +1,212 @@
+/* お気に入り商品一覧ページ用スタイル */
+.favorites-page {
+    padding: 3rem 1rem;
+}
+
+.favorites-wrapper {
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.status-message {
+    color: #16a34a;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.favorite-item {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.favorite-item a {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.05rem;
+    text-decoration: none;
+}
+
+.favorite-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.favorite-button,
+.detail-button {
+    padding: 0.5rem 1rem;
+    background-color: #d8a26b;
+    color: white !important;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.favorite-button:hover,
+.detail-button:hover {
+    background-color: #c68955;
+}
+
+.pagination-wrapper {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.pagination-wrapper nav {
+    display: inline-block;
+}
+
+.back-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.nav-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    min-width: 2.5rem;
+    text-align: center;
+    border: none;
+}
+
+.nav-button:hover {
+    background-color: #ddd; 
+}
+
+/*  無効状態（最初や最後） */
+.nav-button.disabled {
+    background-color: #e0e0e0;
+    color: #999;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.nav-button.active {
+    background-color: #007f65;
+    color:#fff;
+}
+
+/*  通常ボタン */
+.nav-button:not(.active) {
+    background-color: #fff;
+    color: #00796d;
+}
+
+.b-nav-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    min-width: 2.5rem;
+    text-align: center;
+    border: none;
+}
+
+.b-nav-button:not(.active) {
+    background-color: #00796d;
+    color: #fff;
+}
+
+.custom-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); 
+    z-index: -1;
+}
+
+.no-data-message {
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #333;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    text-align: center;
+    max-width: 400px;
+    margin: 2rem auto;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+@media screen and (max-width: 768px) {
+    .favorites-page {
+        padding: 2rem 1rem;
+    }
+
+    .favorite-item {
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+
+    .favorite-item a {
+        font-size: 1rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .favorite-button,
+    .detail-button {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .back-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0 1rem;
+    }
+
+    .b-nav-button {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+    }
+
+    .custom-pagination {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+    }
+}

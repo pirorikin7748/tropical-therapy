@@ -1,0 +1,1 @@
+<img src="{{ asset('images/topLogo.png') }}" alt="Tropical Therapy ロゴ" class="h-16">

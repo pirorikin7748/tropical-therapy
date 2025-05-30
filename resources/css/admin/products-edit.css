@@ -1,0 +1,89 @@
+.product-edit-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+}
+
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.5rem;
+    font-size: 0.95rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input[type="file"] {
+    margin-top: 0.5rem;
+}
+
+.image-preview,
+.sub-image-preview {
+    margin-top: 1rem;
+}
+
+.image-preview img,
+.sub-image-preview img {
+    width: 150px;
+    border-radius: 6px;
+}
+
+.delete-checkbox {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.submit-group {
+    text-align: center;
+}
+
+button {
+    padding: 0.6rem 2rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.links {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.links a {
+    color: purple;
+    margin: 0 1rem;
+    text-decoration: underline;
+    font-weight: bold;
+}

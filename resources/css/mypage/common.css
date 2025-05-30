@@ -1,0 +1,45 @@
+.password-reset-form {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 共通フォーム入力 */
+.form-input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* ボタン共通デザイン */
+.b-nav-button {
+    display: inline-block;
+    background-color: #007f65;
+    color: #fff;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.b-nav-button:hover {
+    background-color: #005a48;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); 
+    z-index: -1;
+}
