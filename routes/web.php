@@ -120,3 +120,5 @@ Route::middleware(['web'])
     });
 
 require __DIR__.'/auth.php';
+
+Route::get('/', [\App\Http\Controllers\ProductViewController::class, 'index'])->name('products.index');

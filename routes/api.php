@@ -101,6 +101,11 @@ Route::get('/products', function (Request $request) {
         //配列化
         $products = collect($pagination->items())->map(function ($product) use ($favorites) {
             $product->is_favorite = in_array($product->id, $favorites);
+
+            $product->image_url = $product->image 
+                ? asset('storage/img/products/' . $product->image)
+                : asset('images/noimage.png');
+                
             return $product;
         });
 

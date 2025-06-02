@@ -73,6 +73,15 @@ class ProductController extends Controller
         //カテゴリリスト
         $categories = Category::with('children')->whereNull('parent_id')->orderBy('sort_order')->get();
 
+        $products->setCollection(
+            $products->getCollection()->transform(function ($product) {
+                $product->image_url = $product->image
+                    ? asset('storage/img/products/' . $product->image)
+                    : asset('images/no-image.png'); // fallback
+                return $product;
+            })
+        );        
+
         return response()->json($products);
     }
 

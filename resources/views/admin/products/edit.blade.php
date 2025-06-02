@@ -50,7 +50,7 @@
                     <input type="file" id="main_image" name="main_image">
                     @if ($product->image)
                         <div class="image-preview">
-                            <img src="{{ asset('img/products/' . $product->image) }}" alt="メイン画像">
+                            <img src="{{ asset('storage/img/products/' . $product->image) }}" alt="メイン画像">
                         </div>
                     @endif 
                 </div>
@@ -61,7 +61,7 @@
 
                     @foreach ($subImages as $subImage)
                         <div class="sub-image-preview">
-                            <img src="{{ asset('img/products/sub/' . $subImage->image_path) }}" alt="サブ画像">
+                            <img src="{{ asset('storage/img/products/sub/' . $subImage->image_path) }}" alt="サブ画像">
                             <div class="delete-checkbox">
                                 <input type="checkbox" name="delete_sub_images[]" value="{{ $subImage->id }}" id="delete_{{ $subImage->id }}">
                                 <label for="delete_{{ $subImage->id }}">削除する</label>

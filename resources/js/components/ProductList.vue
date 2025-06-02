@@ -14,7 +14,7 @@
           :key="product.id"
           class="product-card"
         >
-          <img :src="'/img/products/' + product.image" />
+          <img :src="product.image_url" :alt="product.name" />
           <h3>{{ product.name }}</h3>
           <p>{{ Number(product.price).toLocaleString() }}円</p>
           <a :href="`/products/${product.id}`" class="text-purple-600 underline text-sm block my-2">詳細</a>

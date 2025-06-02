@@ -2,6 +2,13 @@ Tropical Therapy - Laravel版 ファッションECサイト
 
 Tropical Therapyは、メンズ・レディースのファッションアイテムを販売するECサイトです。本プロジェクトはLaravel 10とVue.jsを使用して構築されており、UIとUXを意識して豊富な機能を備えたデモサイトです。
 
+▼ サイトURL（トップページ）
+http://52.196.105.62/
+
+▼ 管理者ログインURL
+http://52.196.105.62/admin/login
+
+
 ---
 
  主な技術スタック

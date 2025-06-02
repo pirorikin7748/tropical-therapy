@@ -16,11 +16,11 @@
             <div class="swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="{{ asset('img/products/' . $product->image) }}" alt="{{ $product->name }}">
+                        <img src="{{ asset('storage/img/products/' . $product->image) }}" alt="{{ $product->name }}">
                     </div>
                     @foreach ($product->subImages as $img)
                         <div class="swiper-slide">
-                            <img src="{{ asset('img/products/sub/' . $img->image_path) }}" alt="サブ画像">
+                            <img src="{{ asset('/storage/img/products/sub/' . $img->image_path) }}" alt="サブ画像">
                         </div>
                     @endforeach
                 </div>

@@ -54,6 +54,10 @@
 
     <form method="POST" action="{{ route('admin.products.store') }}">
         @csrf
+        @if (!empty($data['main_temp_path']))
+            <input type="hidden" name="main_temp_path" value="{{ $data['main_temp_path'] }}">
+            <input type="hidden" name="main_image_name" value="{{ $data['main_image_name'] }}">
+        @endif
         @foreach ($data as $key => $value)
             @if (!is_array($value))
                 <input type="hidden" name="{{ $key }}" value="{{ $value }}">

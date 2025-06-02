@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\ProductImage;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Log;
 
 class AdminProductController extends Controller
 {
@@ -186,7 +187,7 @@ class AdminProductController extends Controller
 
             $mainImage = $request->file('main_image');
             $mainFilename = Str::uuid()->toString() . '.' . $mainImage->getClientOriginalExtension();
-            $mainImage->move(public_path('img/products'), $mainFilename);
+            $mainImage->storeAs('public/img/products', $mainFilename);
             $product->image = $mainFilename;
         }
 
@@ -210,7 +211,7 @@ class AdminProductController extends Controller
         if ($request->hasFile('sub_images')) {
             foreach ($request->file('sub_images') as $subImage) {
                 $subFilename = Str::uuid()->toString() . '.' . $subImage->getClientOriginalExtension();
-                $subImage->move(public_path('img/products/sub'), $subFilename);
+                $subImage->storeAs('public/img/products/sub', $subFilename);
 
                 ProductImage::create([
                     'product_id' => $product->id,
@@ -274,6 +275,14 @@ class AdminProductController extends Controller
         if ($request->hasFile('main_image')) {
             $main = $request->file('main_image');
             $mainTempPath = $main->store('public/temp');
+            $fullPath = storage_path('app/' . $mainTempPath);
+
+            if (!file_exists($fullPath)) {
+                \Log::error("一時ファイルが存在しません:" . $fullPath);
+            }
+            
+            @chown($fullPath, 'ec2-user');
+            @chmod($fullPath, 0644);
             $validated['main_temp_path'] = $mainTempPath;
             $validated['main_image_name'] = $main->getClientOriginalName();
         }
@@ -283,6 +292,9 @@ class AdminProductController extends Controller
         if ($request->hasFile('sub_images')) {
             foreach ($request->file('sub_images') as $img) {
                 $path = $img->store('public/temp');
+                $fullPath = storage_path('app/' . $path);
+                @chown($fullPath, 'ec2-user');
+                @chmod($fullPath, 0644);
                 $subImagePaths[] = ['path' => $path, 'name' => $img->getClientOriginalName()];
             }
         }
@@ -311,12 +323,20 @@ class AdminProductController extends Controller
         // メイン画像（temp→本保存）
         if ($request->filled('main_temp_path')) {
             $tempPath = $request->input('main_temp_path');
-            $mainFilename = Str::uuid() . '.' . pathinfo($tempPath, PATHINFO_EXTENSION);
-            $targetPath = public_path('img/products/' . $mainFilename);
+            $originalName = $request->input('main_image_name');
+            $ext = pathinfo($originalName, PATHINFO_EXTENSION);
+            $mainFilename = Str::uuid() . '.' . $ext;
 
-            Storage::copy($tempPath, $targetPath); // コピー
-            Storage::delete($tempPath);            // 削除
-            $product->image = $mainFilename;
+            Storage::makeDirectory('public/img/products');
+            $targetPath = 'img/products/' . $mainFilename;
+
+            if (Storage::exists($tempPath)) {
+                Storage::copy($tempPath, 'public/img/products/' . $mainFilename); // コピー
+                Storage::delete($tempPath);            // 削除
+                $product->image = $mainFilename;
+            }else {
+                Log::error("main_temp_path ファイルが存在しません: " . $tempPath);
+            }
         }
 
         $product->save();
@@ -324,18 +344,24 @@ class AdminProductController extends Controller
         // サブ画像（temp→本保存）
         $paths = $request->input('sub_temp_paths', []);
         $names = $request->input('sub_image_names', []);
+        Storage::makeDirectory('public/img/products/sub');
         foreach ($paths as $index => $tempPath) {
-            $ext = pathinfo($names[$index], PATHINFO_EXTENSION);
+            $originalName = $names[$index] ?? 'default.jpg';
+            $ext = pathinfo($originalName, PATHINFO_EXTENSION);
             $subFilename = Str::uuid() . '.' . $ext;
-            $targetPath = public_path('img/products/sub/' . $subFilename);
+            $targetPath = 'img/products/sub/' . $subFilename;
 
-            Storage::copy($tempPath, $targetPath);
-            Storage::delete($tempPath);
+            if (Storage::exists($tempPath)) {
+                Storage::copy($tempPath, 'public/img/products/sub/' . $subFilename);
+                Storage::delete($tempPath);
 
-            ProductImage::create([
-                'product_id' => $product->id,
-                'image_path' => $subFilename,
-            ]);
+                ProductImage::create([
+                    'product_id' => $product->id,
+                    'image_path' => $subFilename,
+                ]);
+            }else {
+                Log::error("sub_temp_path ファイルが存在しません: " . $tempPath);
+            }
         }
 
         return redirect()->route('admin.products.index')
