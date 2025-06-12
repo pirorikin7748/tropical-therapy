@@ -27,7 +27,7 @@
 
                         {{-- 商品画像 --}}
                         @if ($item->product->image)
-                            <img src="{{ asset('img/products/' . $item->product->image) }}" alt="{{ $item->product->name }}">
+                            <img src="{{ asset('storage/img/products/' . $item->product->image) }}" alt="{{ $item->product->name }}">
                         @endif 
 
                         {{-- 削除ボタン --}}

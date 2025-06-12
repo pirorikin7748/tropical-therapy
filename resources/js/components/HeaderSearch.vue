@@ -59,8 +59,8 @@ methods: {
     const keyword = this.localKeyword?.trim() || '';
     const categoryId = this.localCategoryId === 'all' ? '' : this.localCategoryId;
 
-    // 🔍 コンソール確認用ログ
-    console.log('🔍 HeaderSearch emit: keyword =', keyword, ', categoryId =', categoryId);
+    //  コンソール確認用ログ
+    console.log(' HeaderSearch emit: keyword =', keyword, ', categoryId =', categoryId);
 
     if (this.useRedirect) {
       // GETパラメータ形式でリダイレクト（リダイレクト検索時）

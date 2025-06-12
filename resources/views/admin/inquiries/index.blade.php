@@ -38,7 +38,7 @@
                     <th class="border px-2 py-1">名前</th>
                     <th class="border px-2 py-1">メールアドレス</th>
                     <th class="border px-2 py-1">メッセージ</th>
-                    <th class="border px-2 py-1">送信日時</th>
+                    <th class="border px-2 py-1">受信日時</th>
                     <th class="border px-2 py-1">ステータス</th>
                     <th class="border px-2 py-1">操作</th>
                 </tr>

@@ -3,7 +3,7 @@ import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
 
 export default defineConfig({
-    publicDir: 'public', // ← ✅ この1行を追加！
+    publicDir: 'public', 
 
     resolve: {
         alias: {

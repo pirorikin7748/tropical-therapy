@@ -20,7 +20,7 @@
                 @foreach ($order->orderItems as $item)
                     <div class="order-item">
                         @if ($item->product && $item->product->image)
-                            <img src="{{ asset('img/products/' . $item->product->image) }}" alt="{{ $item->product->name }}">
+                            <img src="{{ asset('storage/img/products/' . $item->product->image) }}" alt="{{ $item->product->name }}">
                         @endif 
                         <div> 
                             <div class="font-bold">{{ $item->product->name }}</div>
